@@ -1,17 +1,19 @@
 body {
   background-color: #eee;
+  font-size: 20px;
 }
 
 .listContainer {
-  margin: auto;
+  margin: 10rem auto;
   background-color: white;
   box-shadow: 5px 5px 10px #888;
   position: relative;
+  width: 80%;
 }
 
 .listContainer p {
   margin: 0;
-  padding: 1rem 1rem;
+  padding: 2rem 1rem;
   border-bottom: 2px solid #eee;
 }
 
@@ -22,7 +24,7 @@ body {
 }
 
 .lists li {
-  padding: 1rem 0;
+  padding: 2rem 0;
   border-bottom: 2px solid #eee;
 }
 
