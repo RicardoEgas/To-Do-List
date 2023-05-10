@@ -23,7 +23,6 @@ const tasks = [
   },
 ];
 
-
 const checkTasks = () => {
   const lists = document.querySelector('.lists');
 
