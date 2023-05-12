@@ -103,13 +103,7 @@ To Do List is a project which consists in giving some basic functionality for ad
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-
-- [Coming Soon]
+git
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
