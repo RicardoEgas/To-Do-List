@@ -52,7 +52,7 @@ document.body.addEventListener('click', (e) => {
 document.querySelectorAll('.task-item').forEach((task) => {
   task.addEventListener('input', (e) => {
     const description = e.target.textContent;
-    let index = [...task.parentElement.children].indexOf(task)-1;
+    const index = [...task.parentElement.children].indexOf(task) - 1;
     editTask(index, description);
   });
 });
