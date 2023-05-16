@@ -1,21 +1,10 @@
 import './index.css';
 import {
-  tasks, addTask, removeTask, editTask,
+  addTask, removeTask, editTask, checkTasks,
 } from './modules/tasks.js';
 
 const lists = document.querySelector('.lists');
 const addBtn = document.querySelector('#add-btn');
-
-const checkTasks = () => {
-  const lists = document.querySelector('.lists');
-
-  tasks.forEach((task) => {
-    lists.insertAdjacentHTML(
-      'beforeend',
-      `<li class="task-item" contentEditable = "false"><input type="checkbox">${task.description}<i id="task-btn" class="fa-solid fa-ellipsis-vertical"></i></li>`,
-    );
-  });
-};
 
 checkTasks();
 

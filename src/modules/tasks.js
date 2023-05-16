@@ -1,4 +1,4 @@
-export const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 export function storeTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -12,6 +12,17 @@ export function addTask(description) {
   };
   tasks.push(task);
   storeTasks();
+}
+
+export function checkTasks() {
+  const lists = document.querySelector('.lists');
+
+  tasks.forEach((task) => {
+    lists.insertAdjacentHTML(
+      'beforeend',
+      `<li class="task-item" contentEditable = "false"><input type="checkbox">${task.description}<i id="task-btn" class="fa-solid fa-ellipsis-vertical"></i></li>`,
+    );
+  });
 }
 
 export function removeTask(index) {
