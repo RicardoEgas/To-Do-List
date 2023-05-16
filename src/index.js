@@ -1,36 +1,47 @@
 import './index.css';
+import {
+  addTask, removeTask, editTask, checkTasks,
+} from './modules/tasks.js';
 
-const tasks = [
-  {
-    description: 'Cook Dinner',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Take a Shower',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'Vacuum the floor',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Meet coding partner',
-    completed: true,
-    index: 4,
-  },
-];
-
-const checkTasks = () => {
-  const lists = document.querySelector('.lists');
-
-  tasks.sort((a, b) => a.index - b.index);
-
-  tasks.forEach((task) => {
-    lists.insertAdjacentHTML('beforeend', `<li><input type="checkbox">${task.description}<i class="fa-solid fa-ellipsis-vertical"></i></li>`);
-  });
-};
+const lists = document.querySelector('.lists');
+const addBtn = document.querySelector('#add-btn');
 
 checkTasks();
+
+addBtn.addEventListener('click', () => {
+  const description = document.getElementById('add-input').value;
+  addTask(description);
+  lists.insertAdjacentHTML(
+    'beforeend',
+    `<li class="task-item" contentEditable = "false"><input type="checkbox">${description}<i id="task-btn" class="fa-solid fa-ellipsis-vertical"></i></li>`,
+  );
+  document.getElementById('add-input').value = '';
+});
+
+document.body.addEventListener('click', (e) => {
+  if (e.target.classList.contains('fa-trash')) {
+    const lis = document.querySelectorAll('.task-item');
+    let index = 0;
+    for (let i = 0; i < lis.length; i += 1) {
+      if (lis[i].textContent === e.target.parentElement.textContent) {
+        index = i;
+      }
+    }
+    e.target.parentElement.remove();
+    removeTask(index);
+  }
+
+  if (e.target.classList.contains('fa-ellipsis-vertical')) {
+    e.target.parentElement.contentEditable = 'true';
+    e.target.classList.remove('fa-ellipsis-vertical');
+    e.target.classList.add('fa-trash');
+  }
+});
+
+document.querySelectorAll('.task-item').forEach((task) => {
+  task.addEventListener('input', (e) => {
+    const description = e.target.textContent;
+    const index = [...task.parentElement.children].indexOf(task) - 1;
+    editTask(index, description);
+  });
+});

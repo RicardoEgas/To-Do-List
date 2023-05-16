@@ -33,6 +33,33 @@ body {
 }
 
 i {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
   position: absolute;
   right: 1rem;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+#add-input {
+  width: 80%;
+  border: none;
+  font-size: 20px;
+  font-style: italic;
+}
+
+*:focus {
+  outline: none;
+}
+
+.btn-container {
+  text-align: center;
+  width: 100%;
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 2rem 0;
+  font-size: 20px;
 }
