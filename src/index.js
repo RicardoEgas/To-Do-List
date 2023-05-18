@@ -35,13 +35,15 @@ document.body.addEventListener('click', (e) => {
     e.target.parentElement.contentEditable = 'true';
     e.target.classList.remove('fa-ellipsis-vertical');
     e.target.classList.add('fa-trash');
+
+    document.querySelectorAll('.task-item').forEach((task) => {
+      task.addEventListener('input', (e) => {
+        const description = e.target.textContent;
+        const index = [...task.parentElement.children].indexOf(task) - 1;
+        editTask(index, description);
+      });
+    });
   }
 });
 
-document.querySelectorAll('.task-item').forEach((task) => {
-  task.addEventListener('input', (e) => {
-    const description = e.target.textContent;
-    const index = [...task.parentElement.children].indexOf(task) - 1;
-    editTask(index, description);
-  });
-});
+
