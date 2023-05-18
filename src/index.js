@@ -1,6 +1,6 @@
 import './index.css';
 import {
-  addTask, removeTask, editTask, checkTasks,
+  addTask, removeTask, editTask, checkTasks, checkedBox, uncheckedBox
 } from './modules/tasks.js';
 
 const lists = document.querySelector('.lists');
@@ -37,9 +37,21 @@ document.body.addEventListener('click', (e) => {
     e.target.classList.add('fa-trash');
 
     document.querySelectorAll('.task-item').forEach((task) => {
+      const index = [...task.parentElement.children].indexOf(task) - 1;
+      task.addEventListener('change', () => {
+  
+        const myCheck = task.firstElementChild;
+        
+          if (myCheck.checked) {
+           checkedBox(index);
+         }
+         else {
+          uncheckedBox(index);
+         }
+        });
+    
       task.addEventListener('input', (e) => {
         const description = e.target.textContent;
-        const index = [...task.parentElement.children].indexOf(task) - 1;
         editTask(index, description);
       });
     });

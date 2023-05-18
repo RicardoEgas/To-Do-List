@@ -37,3 +37,14 @@ export function editTask(index, description) {
   tasks[index].description = description;
   storeTasks();
 }
+
+export function checkedBox(index){
+  tasks[index].completed = true;
+  storeTasks();
+}
+
+export function uncheckedBox(index){
+  tasks[index].completed = false;
+  storeTasks();
+}
+
