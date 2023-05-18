@@ -38,6 +38,15 @@ document.body.addEventListener('click', (e) => {
 
     document.querySelectorAll('.task-item').forEach((task) => {
       const index = [...task.parentElement.children].indexOf(task) - 1;
+  
+      task.addEventListener('input', (e) => {
+        const description = e.target.textContent;
+        editTask(index, description);
+      });
+    });
+  }
+    document.querySelectorAll('.task-item').forEach((task) => {
+      const index = [...task.parentElement.children].indexOf(task) - 1;
       task.addEventListener('change', () => {
   
         const myCheck = task.firstElementChild;
@@ -48,14 +57,8 @@ document.body.addEventListener('click', (e) => {
          else {
           uncheckedBox(index);
          }
-        });
-    
-      task.addEventListener('input', (e) => {
-        const description = e.target.textContent;
-        editTask(index, description);
-      });
-    });
-  }
+        
+  })
+})
 });
-
 
