@@ -1,10 +1,11 @@
 import './index.css';
 import {
-  addTask, removeTask, editTask, checkTasks,
+  addTask, removeTask, editTask, checkTasks, checkedBox, uncheckedBox, clearTasks,
 } from './modules/tasks.js';
 
 const lists = document.querySelector('.lists');
 const addBtn = document.querySelector('#add-btn');
+const resetBtn = document.querySelector('.reset-btn');
 
 checkTasks();
 
@@ -35,13 +36,37 @@ document.body.addEventListener('click', (e) => {
     e.target.parentElement.contentEditable = 'true';
     e.target.classList.remove('fa-ellipsis-vertical');
     e.target.classList.add('fa-trash');
+
+    document.querySelectorAll('.task-item').forEach((task) => {
+      const index = [...task.parentElement.children].indexOf(task) - 1;
+
+      task.addEventListener('input', (e) => {
+        const description = e.target.textContent;
+        editTask(index, description);
+      });
+    });
   }
+  document.querySelectorAll('.task-item').forEach((task) => {
+    const index = [...task.parentElement.children].indexOf(task) - 1;
+    task.addEventListener('change', () => {
+      const myCheck = task.firstElementChild;
+
+      if (myCheck.checked) {
+        checkedBox(index);
+      } else {
+        uncheckedBox(index);
+      }
+    });
+  });
 });
 
-document.querySelectorAll('.task-item').forEach((task) => {
-  task.addEventListener('input', (e) => {
-    const description = e.target.textContent;
-    const index = [...task.parentElement.children].indexOf(task) - 1;
-    editTask(index, description);
+resetBtn.addEventListener('click', () => {
+  document.querySelectorAll('.task-item').forEach((task) => {
+    const myCheck = task.firstElementChild;
+
+    if (myCheck.checked) {
+      task.remove();
+    }
   });
+  clearTasks();
 });
