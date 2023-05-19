@@ -1,4 +1,4 @@
-const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 export function storeTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -38,22 +38,21 @@ export function editTask(index, description) {
   storeTasks();
 }
 
-export function checkedBox(index){
+export function checkedBox(index) {
   tasks[index].completed = true;
   storeTasks();
 }
 
-export function uncheckedBox(index){
+export function uncheckedBox(index) {
   tasks[index].completed = false;
   storeTasks();
 }
 
-export function clearTasks(){
+export function clearTasks() {
   const uncheckedTasks = tasks.filter((task) => task.completed === false);
-  console.log(uncheckedTasks);
   uncheckedTasks.forEach((task, index) => {
     task.index = index + 1;
-  })
-  localStorage.setItem('tasks', JSON.stringify(uncheckedTasks));
-  
+  });
+  tasks = uncheckedTasks;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }

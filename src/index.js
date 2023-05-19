@@ -1,6 +1,6 @@
 import './index.css';
 import {
-  addTask, removeTask, editTask, checkTasks, checkedBox, uncheckedBox, clearTasks
+  addTask, removeTask, editTask, checkTasks, checkedBox, uncheckedBox, clearTasks,
 } from './modules/tasks.js';
 
 const lists = document.querySelector('.lists');
@@ -39,39 +39,34 @@ document.body.addEventListener('click', (e) => {
 
     document.querySelectorAll('.task-item').forEach((task) => {
       const index = [...task.parentElement.children].indexOf(task) - 1;
-  
+
       task.addEventListener('input', (e) => {
         const description = e.target.textContent;
         editTask(index, description);
       });
     });
   }
-    document.querySelectorAll('.task-item').forEach((task) => {
-      const index = [...task.parentElement.children].indexOf(task) - 1;
-      task.addEventListener('change', () => {
-  
-        const myCheck = task.firstElementChild;
-        
-          if (myCheck.checked) {
-           checkedBox(index);
-         }
-         else {
-          uncheckedBox(index);
-         }
-        
-  })
-})
+  document.querySelectorAll('.task-item').forEach((task) => {
+    const index = [...task.parentElement.children].indexOf(task) - 1;
+    task.addEventListener('change', () => {
+      const myCheck = task.firstElementChild;
+
+      if (myCheck.checked) {
+        checkedBox(index);
+      } else {
+        uncheckedBox(index);
+      }
+    });
+  });
 });
 
 resetBtn.addEventListener('click', () => {
-  document.querySelectorAll('.task-item').forEach((task) =>{
+  document.querySelectorAll('.task-item').forEach((task) => {
     const myCheck = task.firstElementChild;
-        
-    if (myCheck.checked) {
-     task.remove();
-   }
 
+    if (myCheck.checked) {
+      task.remove();
+    }
   });
   clearTasks();
-})
-
+});
