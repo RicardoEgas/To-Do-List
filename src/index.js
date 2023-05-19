@@ -1,10 +1,11 @@
 import './index.css';
 import {
-  addTask, removeTask, editTask, checkTasks, checkedBox, uncheckedBox
+  addTask, removeTask, editTask, checkTasks, checkedBox, uncheckedBox, clearTasks
 } from './modules/tasks.js';
 
 const lists = document.querySelector('.lists');
 const addBtn = document.querySelector('#add-btn');
+const resetBtn = document.querySelector('.reset-btn');
 
 checkTasks();
 
@@ -61,4 +62,16 @@ document.body.addEventListener('click', (e) => {
   })
 })
 });
+
+resetBtn.addEventListener('click', () => {
+  document.querySelectorAll('.task-item').forEach((task) =>{
+    const myCheck = task.firstElementChild;
+        
+    if (myCheck.checked) {
+     task.remove();
+   }
+
+  });
+  clearTasks();
+})
 

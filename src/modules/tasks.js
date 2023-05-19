@@ -48,3 +48,12 @@ export function uncheckedBox(index){
   storeTasks();
 }
 
+export function clearTasks(){
+  const uncheckedTasks = tasks.filter((task) => task.completed === false);
+  console.log(uncheckedTasks);
+  uncheckedTasks.forEach((task, index) => {
+    task.index = index + 1;
+  })
+  localStorage.setItem('tasks', JSON.stringify(uncheckedTasks));
+  
+}
