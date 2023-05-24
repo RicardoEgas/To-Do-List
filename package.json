@@ -272,6 +272,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.21.5",
     "css-loader": "^6.7.3",
     "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "style-loader": "^3.3.2",
     "webpack": "^5.82.0",
     "webpack-cli": "^5.1.1",

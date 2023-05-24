@@ -1,3 +1,5 @@
+/** @jest-environment jsdom */
+
 import { addTask, storeTasks } from './add';
 describe('addTask', () => {
     let mockStorage;
@@ -20,4 +22,16 @@ describe('addTask', () => {
         JSON.stringify([{ description: 'Test code', completed: false, index: 1 }])
       );
     });
+    it('Add one new item to the list', () => {
+      document.body.innerHTML =
+      '<div>' +
+      '  <ul id="list"><li></li></ul>' +
+      '</div>';
+      addTask('hello', mockStorage);
+      const list = document.querySelectorAll('#list li');
+      expect(list).toHaveLength(1);
   });
+  });
+
+
+  
