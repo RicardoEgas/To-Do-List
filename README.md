@@ -47,20 +47,6 @@ To Do List is a project which consists in giving some basic functionality for ad
   </ul>
 </details>
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="">N/A</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="">N/A</a></li>
-  </ul>
-</details>
-
 ### Key Features <a name="key-features"></a>
 
 
@@ -69,10 +55,7 @@ To Do List is a project which consists in giving some basic functionality for ad
 - **[Test unit]**
 - **[Dynamic HTML]**
 
-## 🚀 Live Demo <a name="live-demo"></a>
 
-
-- [https://ricardoegas.github.io/To-Do-List/]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,6 +134,7 @@ GitHub Pages
 
 - [ ] **[Styling]**
 - [ ] **[Functionality]**
+- [ ] **[Improved UI]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
