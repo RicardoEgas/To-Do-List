@@ -4,6 +4,16 @@ export function storeTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+export function addTask(description) {
+  const task = {
+    description,
+    completed: false,
+    index: tasks.length + 1,
+  };
+  tasks.push(task);
+  storeTasks();
+}
+
 export function checkTasks() {
   const lists = document.querySelector('.lists');
 

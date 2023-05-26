@@ -56,9 +56,10 @@ describe('addTask', () => {
 
   it('clear everything', () => {
     clearTasks();
-
+    // loop through all tasks to check if completed value is false
     for (let i = 0; i < mockStorage.length; i += 1) {
-      expect(JSON.parse(mockStorage.setItem.mock.calls[i])).toEqual([{ completed: false, index: 1 }]);
+    // eslint-disable-next-line max-len
+      expect(JSON.parse(mockStorage.setItem.mock.calls[i])).toEqual([{ completed: false, index: i + 1 }]);
     }
   });
 });

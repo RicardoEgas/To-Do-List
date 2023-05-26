@@ -1,4 +1,4 @@
-export let tasks = [];
+export const tasks = [];
 
 function storeTasks(storage) {
   storage.setItem('tasks', JSON.stringify(tasks));
@@ -33,6 +33,5 @@ export function clearTasks() {
   uncheckedTasks.forEach((task, index) => {
     task.index = index + 1;
   });
-  tasks = uncheckedTasks;
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  localStorage.setItem('tasks', JSON.stringify(uncheckedTasks));
 }
