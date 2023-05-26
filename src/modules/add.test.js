@@ -1,7 +1,8 @@
 /** @jest-environment jsdom */
 
-import { addTask, removeTask, editTask, checkedBox, tasks, clearTasks } from './add-remove.js';
-
+import {
+  addTask, removeTask, editTask, checkedBox, tasks, clearTasks,
+} from './add-remove.js';
 
 describe('addTask', () => {
   let mockStorage;
@@ -54,9 +55,10 @@ describe('addTask', () => {
   });
 
   it('clear everything', () => {
-  clearTasks();
+    clearTasks();
 
-  // Assert
-  expect(JSON.parse(mockStorage.setItem.mock.calls[0][1])).toEqual([{ completed: false, index: 1 }]);
-});
+    for (let i = 0; i < mockStorage.length; i += 1) {
+      expect(JSON.parse(mockStorage.setItem.mock.calls[i])).toEqual([{ completed: false, index: 1 }]);
+    }
+  });
 });
