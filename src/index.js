@@ -1,7 +1,10 @@
 import './index.css';
 import {
-  addTask, removeTask, editTask, checkTasks, checkedBox, uncheckedBox, clearTasks,
+  editTask, checkTasks, checkedBox, uncheckedBox, clearTasks,
 } from './modules/tasks.js';
+import {
+  addTask, removeTask,
+} from './modules/add-remove.js';
 
 const lists = document.querySelector('.lists');
 const addBtn = document.querySelector('#add-btn');
