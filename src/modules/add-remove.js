@@ -20,3 +20,11 @@ export function removeTask(index, storage) {
   }
   storeTasks(storage);
 }
+export function editTask(index, description, storage) {
+  tasks[index].description = description;
+  storeTasks(storage);
+}
+export function checkedBox(index, storage) {
+  tasks[index].completed = true;
+  storeTasks(storage);
+}
