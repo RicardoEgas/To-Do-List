@@ -37,6 +37,15 @@ To Do List is a project which consists in giving some basic functionality for ad
 
 ## 🛠 Built With <a name="built-with"></a>
 
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="">HTML</a></li>
+    <li><a href="">CSS</a></li>
+  </ul>
+</details>
 
 ### Key Features <a name="key-features"></a>
 
@@ -125,7 +134,7 @@ GitHub Pages
 
 - [ ] **[Styling]**
 - [ ] **[Functionality]**
-- [ ] **[UI Improvement]**
+- [ ] **[Improved UI]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
