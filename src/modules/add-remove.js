@@ -1,4 +1,4 @@
-const tasks = [];
+export const tasks = [];
 
 function storeTasks(storage) {
   storage.setItem('tasks', JSON.stringify(tasks));

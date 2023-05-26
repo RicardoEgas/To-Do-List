@@ -1,6 +1,6 @@
 /** @jest-environment jsdom */
 
-import { addTask, removeTask, editTask, checkedBox } from './add-remove.js';
+import { addTask, removeTask, editTask, checkedBox, tasks } from './add-remove.js';
 
 
 describe('addTask', () => {
@@ -40,11 +40,12 @@ describe('addTask', () => {
     expect(mockStorage.getItem()).toHaveLength(2);
   });
   it('edit task', () => {
-    addTask('Test code', mockStorage);
-    addTask('Test code', mockStorage);
-    addTask('Test code', mockStorage);
-    editTask(0,'Edit code', mockStorage);
-    expect(mockStorage.getItem()).toBe('Edit code');
+    const index = 0;
+    const description = 'Updated task description';
+    editTask(index, description, mockStorage);
+    expect(tasks[index].description).toBe(description);
+    expect(mockStorage.setItem).toHaveBeenCalledTimes(1);
+    expect(mockStorage.setItem).toHaveBeenCalledWith('tasks', JSON.stringify(tasks));
   });
   it('check status', () => {
     addTask('Test code', mockStorage);
